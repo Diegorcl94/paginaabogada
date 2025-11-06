@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "http://torrejonycia.com/*"
+  to = "https://torrejonycia.com/:splat"
+  status = 301
+  force = true
