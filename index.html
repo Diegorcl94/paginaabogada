@@ -78,14 +78,18 @@
       <div class="contact-form">
         <h2>Te contactamos</h2>
 
-        <form id="contactForm" action="https://formspree.io/f/movajkqk" method="POST">
+        <!-- ✅ Formulario con endpoint correcto -->
+        <form id="contactForm" action="https://formspree.io/f/xqagrwjg" method="POST">
           <input type="hidden" name="_subject" value="Nuevo mensaje desde Torrejón & Cía.">
+          
           <div class="form-group">
             <input type="text" name="nombre" placeholder="Nombre completo" required>
             <input type="text" name="telefono" placeholder="Teléfono">
           </div>
+
           <input type="email" name="correo" placeholder="Correo electrónico" required>
           <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          
           <button type="submit" class="btn">Enviar</button>
         </form>
 
@@ -110,8 +114,9 @@
     <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
   </a>
 
-  <!-- SCRIPT MENSAJE FORMULARIO -->
+  <!-- SCRIPT FORMULARIO + MENÚ -->
   <script>
+    // --- FORMULARIO DE CONTACTO ---
     const form = document.getElementById("contactForm");
     const message = document.getElementById("formMessage");
 
@@ -145,7 +150,7 @@
       }, 5000);
     });
 
-    // Script menú móvil
+    // --- MENÚ MÓVIL ---
     const menuBtn = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".nav-links");
     menuBtn.addEventListener("click", () => {
