@@ -24,16 +24,55 @@ header .container {
   margin: auto;
 }
 
-header nav a {
+/* LINKS DE NAVEGACIÓN */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
   color: #0d1b2a;
   text-decoration: none;
-  margin-left: 20px;
   font-weight: 500;
   transition: color 0.3s;
 }
 
-header nav a:hover {
+.nav-links a:hover {
   color: #0077cc;
+}
+
+/* BOTÓN MENU MÓVIL */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #0d1b2a;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    width: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 /* HERO */
@@ -93,7 +132,6 @@ header nav a:hover {
 }
 
 .logo {
-  /* Más grande y responsivo */
   width: clamp(300px, 22vw, 600px);
   height: auto;
   border: none;
@@ -102,7 +140,6 @@ header nav a:hover {
   padding: 0;
 }
 
-/* Ajuste adicional para pantallas pequeñas */
 @media (max-width: 600px) {
   .logo {
     width: clamp(180px, 36vw, 360px);
@@ -227,17 +264,31 @@ footer {
 /* MENSAJE CONFIRMACIÓN */
 .form-message {
   opacity: 0;
-  transition: opacity 0.5s ease;
-  color: #0077cc;
+  transition: opacity 0.4s ease-in-out;
   font-weight: 600;
   margin-top: 10px;
+  text-align: center;
+  font-size: 0.95em;
+  padding: 8px 10px;
+  border-radius: 6px;
 }
 
 .form-message.visible {
   opacity: 1;
 }
 
-/* RESPONSIVE */
+.form-message.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.form-message.error {
+  background: #fdecea;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
 @media (max-width: 900px) {
   .contact-container {
     flex-direction: column;
