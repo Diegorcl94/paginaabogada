@@ -189,6 +189,7 @@ header .container {
   gap: 10px;
 }
 
+/* INPUTS Y TEXTAREA */
 .contact-form input,
 .contact-form textarea {
   background: #f0f0f0;
@@ -199,8 +200,19 @@ header .container {
   width: 100%;
   font-size: 1em;
   color: #0d1b2a;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
+/* TEXTAREA MEJORADO */
+.contact-form textarea {
+  height: 110px;
+  min-height: 100px;
+  max-height: 180px;
+  resize: vertical;
+}
+
+/* BOTÓN */
 .contact-form button {
   background: #0d1b2a;
   color: white;
@@ -217,7 +229,7 @@ header .container {
   background: #1e3a5f;
 }
 
-/* LOGO CONTACTO SIN BORDES */
+/* LOGO CONTACTO */
 .contact-logo {
   text-align: center;
 }
@@ -289,6 +301,7 @@ footer {
   border: 1px solid #c62828;
 }
 
+/* RESPONSIVE CONTACTO */
 @media (max-width: 900px) {
   .contact-container {
     flex-direction: column;
@@ -298,5 +311,13 @@ footer {
 
   .contact-form button {
     align-self: center;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .contact-form textarea {
+    height: 90px;
   }
 }
