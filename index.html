@@ -13,13 +13,12 @@
   <header>
     <div class="container">
       <div class="logo-container">
-        <img src="img/lienzo.png" alt="Torrejón & Cía. Estudio de Abogados" class="logo">
+        <img src="img/lienzo.png" alt="Torrejón & Cía." class="logo">
       </div>
 
-      <!-- Botón menú móvil -->
-      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <button class="menu-toggle">☰</button>
 
-      <nav aria-label="Menú principal" class="nav-links">
+      <nav class="nav-links">
         <a href="#inicio">Inicio</a>
         <a href="#sobre">Sobre nosotros</a>
         <a href="#servicios">Servicios</a>
@@ -32,15 +31,15 @@
   <section id="inicio" class="hero">
     <div class="hero-content">
       <h2>Asesoría Legal con Experiencia y Compromiso</h2>
-      <p>En nuestro estudio jurídico encontrarás el respaldo profesional que necesitas. Nos dedicamos a proteger tus derechos y acompañarte en cada paso legal que necesites.</p>
+      <p>En nuestro estudio jurídico encontrarás el respaldo profesional que necesitas.</p>
       <a href="#contacto" class="btn">Agenda tu consulta</a>
     </div>
   </section>
 
-  <!-- SOBRE NOSOTROS -->
+  <!-- SOBRE -->
   <section id="sobre" class="about">
     <h2>Sobre nosotros</h2>
-    <p>En <strong>Torrejón & Cía.</strong> somos un estudio jurídico con amplia experiencia en las áreas de derecho de familia, civil y policía local. Nuestro compromiso es brindar soluciones legales efectivas, cercanas y con total ética profesional.</p>
+    <p>En <strong>Torrejón & Cía.</strong> somos un estudio jurídico con amplia experiencia.</p>
   </section>
 
   <!-- SERVICIOS -->
@@ -49,15 +48,15 @@
     <div class="service-list">
       <div class="service">
         <h3>Derecho de Familia</h3>
-        <p>Pensiones de alimentos, relación directa y regular, cuidado personal, bien familiar, cobro de deuda de alimentos, divorcio, VIF y vulneración de derechos.</p>
+        <p>Pensiones, divorcio, VIF, etc.</p>
       </div>
       <div class="service">
         <h3>Derecho Civil</h3>
-        <p>Posesión efectiva, herencias y juicios ejecutivos.</p>
+        <p>Herencias, posesión efectiva.</p>
       </div>
       <div class="service">
         <h3>Policía Local</h3>
-        <p>Ley del consumidor, ley de tránsito, entre otros.</p>
+        <p>Ley del consumidor, tránsito.</p>
       </div>
     </div>
   </section>
@@ -66,39 +65,35 @@
   <section id="contacto" class="contact">
     <div class="contact-container">
 
-      <!-- IZQUIERDA -->
       <div class="contact-info">
         <h2>Contáctanos</h2>
-        <p>Somos un equipo comprometido en brindar asesoría legal integral en diversas áreas del derecho.</p>
+        <p>Asesoría legal integral.</p>
         <p><strong>Teléfono:</strong><br> +56 9 7428 2542</p>
         <p><strong>Correo:</strong><br> contacto@torrejonycia.com</p>
       </div>
 
-      <!-- CENTRO -->
       <div class="contact-form">
         <h2>Te contactamos</h2>
 
-        <!-- ✅ Formulario con endpoint correcto -->
         <form id="contactForm" action="https://formspree.io/f/xqagrwjg" method="POST">
-          <input type="hidden" name="_subject" value="Nuevo mensaje desde Torrejón & Cía.">
-          
+          <input type="hidden" name="_subject" value="Nuevo mensaje">
+
           <div class="form-group">
             <input type="text" name="nombre" placeholder="Nombre completo" required>
             <input type="text" name="telefono" placeholder="Teléfono">
           </div>
 
           <input type="email" name="correo" placeholder="Correo electrónico" required>
-          <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
-          
+          <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
           <button type="submit" class="btn">Enviar</button>
         </form>
 
         <p id="formMessage" class="form-message"></p>
       </div>
 
-      <!-- DERECHA -->
       <div class="contact-logo">
-        <img src="img/logo_transparente.png" alt="Logo Torrejón & Cía.">
+        <img src="img/logo_transparente.png" alt="Logo">
       </div>
 
     </div>
@@ -106,17 +101,25 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Torrejón & Cía. Estudio de Abogados - Todos los derechos reservados</p>
+    <p>© 2025 Torrejón & Cía. Estudio de Abogados</p>
+
+    <!-- 🔥 NUEVO: AMULEY DEV -->
+    <div class="amuley">
+      <p>Página desarrollada por amuleydev.cl</p>
+
+      <a href="https://amuleydev.cl" target="_blank">
+        <img src="img/Amuleydevnegro - Editado.png" alt="Amuley Dev">
+      </a>
+    </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="https://wa.me/56974282542" class="float-wsp" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/56974282542" class="float-wsp" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
   </a>
 
-  <!-- SCRIPT FORMULARIO + MENÚ -->
+  <!-- SCRIPT -->
   <script>
-    // --- FORMULARIO DE CONTACTO ---
     const form = document.getElementById("contactForm");
     const message = document.getElementById("formMessage");
 
@@ -132,27 +135,19 @@
         });
 
         if (res.ok) {
-          message.textContent = "✅ Gracias, tu mensaje fue enviado correctamente.";
-          message.className = "form-message visible success";
+          message.textContent = "Mensaje enviado correctamente";
           form.reset();
         } else {
-          message.textContent = "❌ Ocurrió un error. Intenta nuevamente.";
-          message.className = "form-message visible error";
+          message.textContent = "Error al enviar";
         }
-      } catch (error) {
-        message.textContent = "⚠️ Error de conexión. Intenta más tarde.";
-        message.className = "form-message visible error";
+      } catch {
+        message.textContent = "Error de conexión";
       }
-
-      setTimeout(() => {
-        message.className = "form-message";
-        message.textContent = "";
-      }, 5000);
     });
 
-    // --- MENÚ MÓVIL ---
     const menuBtn = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".nav-links");
+
     menuBtn.addEventListener("click", () => {
       nav.classList.toggle("active");
       menuBtn.textContent = nav.classList.contains("active") ? "✖" : "☰";
