@@ -321,3 +321,23 @@ footer {
     height: 90px;
   }
 }
+
+.amuley {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.amuley p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.amuley img {
+  width: 160px;
+  transition: transform 0.3s;
+}
+
+.amuley img:hover {
+  transform: scale(1.05);
+}
