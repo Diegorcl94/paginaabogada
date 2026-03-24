@@ -4,155 +4,412 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Torrejón & Cía. | Estudio de Abogados</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="img/logo_transparente.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #1A365D; 
+      --accent-color: #C5A880;  
+      --text-color: #333333;
+      --light-bg: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-color);
+      overflow-x: hidden; 
+    }
+
+    h1, h2, h3, h4, .titulo-grande {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* --- HEADER / NAVEGACIÓN --- */
+    header {
+      transition: all 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(5px); 
+    }
+
+    .logo {
+      height: 50px; 
+      object-fit: contain;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('img/justicia_hero.jpg') center/cover no-repeat;
+      padding: 150px 0 100px 0; 
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      font-size: 3.5rem; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
+
+    .hero p.lead {
+      color: #e0e0e0;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* --- BOTONES --- */
+    .btn-primary {
+      background-color: var(--accent-color); 
+      border-color: var(--accent-color);
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      padding: 14px 30px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary:hover {
+      background-color: #b09168; 
+      border-color: #b09168;
+      transform: translateY(-3px); 
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      color: #ffffff;
+    }
+
+    .nav-contacto-btn {
+      padding: 8px 20px !important;
+      background-color: var(--primary-color);
+      color: white !important;
+      border-radius: 4px;
+    }
+    
+    .nav-contacto-btn:hover {
+      background-color: var(--accent-color);
+      color: white !important;
+    }
+    
+    .nav-contacto-btn::after { display: none; } 
+
+    /* --- SECCIONES GENERALES --- */
+    section {
+      padding: 80px 0;
+    }
+
+    .titulo-seccion {
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+
+    .titulo-seccion::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* --- CARDS SERVICIOS --- */
+    .services {
+      background-color: var(--light-bg);
+    }
+
+    .services .card {
+      border: none;
+      border-radius: 8px;
+      transition: all 0.4s ease;
+      background: #ffffff;
+      height: 100%;
+    }
+
+    .services .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    .icon-box {
+      font-size: 2.8rem;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+    }
+
+    /* --- CONTACTO --- */
+    .contact-info p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-info i {
+      color: var(--accent-color);
+      margin-right: 15px;
+      font-size: 1.3rem;
+    }
+
+    .form-control {
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 0.2rem rgba(197, 168, 128, 0.25);
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: var(--primary-color) !important;
+      padding: 60px 0 30px 0;
+    }
+
+    .amuley-logo:hover {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+
+    /* --- BOTÓN WHATSAPP FLOTANTE --- */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      color: #FFF;
+      transform: scale(1.1);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero { padding: 120px 0 70px 0; }
+      section { padding: 60px 0; }
+      
+      /* Ajuste del botón de WhatsApp para móviles */
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="logo-container">
-        <img src="img/lienzo.png" alt="Torrejón & Cía." class="logo">
-      </div>
+<header class="shadow-sm fixed-top">
+  <div class="container d-flex justify-content-between align-items-center py-2">
+    <img src="img/lienzo.png" alt="Torrejón & Cía Logo" class="logo">
 
-      <button class="menu-toggle">☰</button>
+    <button class="navbar-toggler d-md-none btn btn-light border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="bi bi-list fs-3"></i>
+    </button>
 
-      <nav class="nav-links">
+    <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
+      <nav class="nav-links d-flex flex-column flex-md-row gap-4 align-items-center pt-3 pt-md-0">
         <a href="#inicio">Inicio</a>
-        <a href="#sobre">Sobre nosotros</a>
+        <a href="#sobre">El Estudio</a>
         <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#contacto" class="nav-contacto-btn">Contacto</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <h2>Asesoría Legal con Experiencia y Compromiso</h2>
-      <p>En nuestro estudio jurídico encontrarás el respaldo profesional que necesitas.</p>
-      <a href="#contacto" class="btn">Agenda tu consulta</a>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section id="sobre" class="about">
-    <h2>Sobre nosotros</h2>
-    <p>En <strong>Torrejón & Cía.</strong> somos un estudio jurídico con amplia experiencia.</p>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section id="servicios" class="services">
-    <h2>Servicios Legales</h2>
-    <div class="service-list">
-      <div class="service">
-        <h3>Derecho de Familia</h3>
-        <p>Pensiones, divorcio, VIF, etc.</p>
-      </div>
-      <div class="service">
-        <h3>Derecho Civil</h3>
-        <p>Herencias, posesión efectiva.</p>
-      </div>
-      <div class="service">
-        <h3>Policía Local</h3>
-        <p>Ley del consumidor, tránsito.</p>
+<section id="inicio" class="hero d-flex align-items-center">
+  <div class="container" data-aos="fade-up" data-aos-duration="1200">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h1 class="display-3 fw-bold">Asesoría Legal con Experiencia</h1>
+        <p class="lead">Protegemos tus derechos y los de tu familia con un compromiso firme, ética y profesionalismo de excelencia en cada caso.</p>
+        <a href="#contacto" class="btn btn-primary btn-lg px-5">Agenda tu consulta</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="contact">
-    <div class="contact-container">
+<section id="sobre" class="about text-center">
+  <div class="container">
+    <h2 class="titulo-seccion" data-aos="fade-up">Sobre Nosotros</h2>
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+        <p class="lead text-muted">
+          En <strong>Torrejón & Cía.</strong> somos un estudio jurídico especializado, compuesto por profesionales con amplia experiencia en derecho de familia, civil y policía local. 
+          Nuestro compromiso principal es entregar soluciones efectivas y oportunas, manteniendo un trato cercano con nuestros clientes y actuando siempre bajo la más estricta ética profesional.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="contact-info">
-        <h2>Contáctanos</h2>
-        <p>Asesoría legal integral.</p>
-        <p><strong>Teléfono:</strong><br> +56 9 7428 2542</p>
-        <p><strong>Correo:</strong><br> contacto@torrejonycia.com</p>
+<section id="servicios" class="services">
+  <div class="container text-center">
+    <h2 class="titulo-seccion mb-5" data-aos="fade-up">Nuestras Áreas de Práctica</h2>
+
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card p-4 shadow-sm h-100">
+          <div class="icon-box"><i class="bi bi-people-fill"></i></div>
+          <h4 class="mb-3">Derecho de Familia</h4>
+          <p class="text-muted">Atención integral en pensiones de alimentos, divorcios, violencia intrafamiliar (VIF), cuidado personal y régimen de visitas.</p>
+        </div>
       </div>
 
-      <div class="contact-form">
-        <h2>Te contactamos</h2>
-
-        <form id="contactForm" action="https://formspree.io/f/xqagrwjg" method="POST">
-          <input type="hidden" name="_subject" value="Nuevo mensaje">
-
-          <div class="form-group">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="text" name="telefono" placeholder="Teléfono">
-          </div>
-
-          <input type="email" name="correo" placeholder="Correo electrónico" required>
-          <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-          <button type="submit" class="btn">Enviar</button>
-        </form>
-
-        <p id="formMessage" class="form-message"></p>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card p-4 shadow-sm h-100">
+          <div class="icon-box"><i class="bi bi-bank2"></i></div>
+          <h4 class="mb-3">Derecho Civil</h4>
+          <p class="text-muted">Gestión experta en herencias, tramitación de posesión efectiva, redacción de contratos y defensa en juicios ejecutivos.</p>
+        </div>
       </div>
 
-      <div class="contact-logo">
-        <img src="img/logo_transparente.png" alt="Logo">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card p-4 shadow-sm h-100">
+          <div class="icon-box"><i class="bi bi-shield-check"></i></div>
+          <h4 class="mb-3">Policía Local</h4>
+          <p class="text-muted">Defensa en infracciones a la ley del consumidor, accidentes de tránsito, choques, daños y multas municipales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="container">
+    <h2 class="titulo-seccion text-center d-block mb-5" data-aos="fade-up">Contáctanos</h2>
+    
+    <div class="row g-5 align-items-center mt-3">
+
+      <div class="col-md-4 contact-info" data-aos="fade-right">
+        <h3 class="mb-4">Hablemos</h3>
+        <p class="text-muted mb-4">Estamos aquí para escucharte y ayudarte. Escríbenos o llámanos para evaluar tu situación legal.</p>
+        <p><i class="bi bi-telephone-fill"></i> +56 9 7428 2542</p>
+        <p><i class="bi bi-envelope-fill"></i> contacto@torrejonycia.com</p>
+        <p><i class="bi bi-geo-alt-fill"></i> Atención Presencial y Online</p>
+      </div>
+
+      <div class="col-md-5" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card p-4 shadow">
+          <form action="https://formspree.io/f/xqagrwjg" method="POST">
+            <input type="text" name="nombre" placeholder="Tu Nombre Completo" class="form-control mb-3" required>
+            <input type="email" name="correo" placeholder="Tu Correo Electrónico" class="form-control mb-3" required>
+            <textarea name="mensaje" class="form-control mb-3" rows="4" placeholder="Describe brevemente tu caso..." required></textarea>
+            <button class="btn btn-primary w-100">Enviar Consulta <i class="bi bi-send-fill ms-2"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-3 text-center" data-aos="fade-left" data-aos-delay="400">
+        <img src="img/logo_transparente.png" alt="Torrejón & Cía" class="img-fluid" style="max-height: 200px; opacity: 0.8;">
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Torrejón & Cía. Estudio de Abogados</p>
-
-    <!-- 🔥 NUEVO: AMULEY DEV -->
-    <div class="amuley">
-      <p>Página desarrollada por amuleydev.cl</p>
-
-      
-        <img src="img/Amuleydevnegro - Editado.png" alt="Amuley Dev">
+<footer class="text-center text-white">
+  <div class="container">
+    <p class="mb-4 fs-5 font-serif">Torrejón & Cía. | Estudio de Abogados</p>
+    <p class="mb-4 small text-white-50">© 2025 Todos los derechos reservados.</p>
+    
+    <div class="mt-5 pt-3 border-top border-secondary">
+      <p class="small text-white-50 mb-2">Página desarrollada por</p>
+      <a href="https://amuleydev.cl" target="_blank">
+        <img src="img/Amuleydevnegro - Editado.png" alt="Amuley Dev" class="amuley-logo" style="width:130px; transition:0.3s; filter: brightness(0) invert(1);"> 
       </a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- WHATSAPP -->
-  <a href="https://wa.me/56974282542" class="float-wsp" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
-  </a>
+<a href="https://wa.me/56974282542" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
 
-  <!-- SCRIPT -->
-  <script>
-    const form = document.getElementById("contactForm");
-    const message = document.getElementById("formMessage");
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, 
+    easing: 'ease-in-out', 
+    once: true, 
+    offset: 100 
+  });
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      try {
-        const res = await fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          message.textContent = "Mensaje enviado correctamente";
-          form.reset();
-        } else {
-          message.textContent = "Error al enviar";
-        }
-      } catch {
-        message.textContent = "Error de conexión";
-      }
-    });
-
-    const menuBtn = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".nav-links");
-
-    menuBtn.addEventListener("click", () => {
-      nav.classList.toggle("active");
-      menuBtn.textContent = nav.classList.contains("active") ? "✖" : "☰";
-    });
-  </script>
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('shadow-lg');
+      header.style.padding = "5px 0";
+    } else {
+      header.classList.remove('shadow-lg');
+      header.style.padding = "10px 0";
+    }
+  });
+</script>
 
 </body>
 </html>
